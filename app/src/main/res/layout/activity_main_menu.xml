@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+    android:background="@drawable/main_screen_grad_bg">
+
+
+    <RelativeLayout
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:id="@+id/test3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:baselineAligned="false"
+            android:gravity="center_horizontal">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/round_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:padding="10px"
+
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/menu_back_arrow"
+                    android:textColor="#fff" />
+
+
+                <!--android:layout_margin="@dimen/fab_margin"-->
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="7">
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <LinearLayout
+            android:id="@+id/test2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:baselineAligned="false"
+            android:gravity="center_horizontal">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/round_button"
+                    android:src="@drawable/menu_question_mark"
+                    android:scaleType="fitCenter"
+android:layout_centerHorizontal="true"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="#fff" />
+
+
+                <!--android:layout_margin="@dimen/fab_margin"-->
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:baselineAligned="false"
+            android:gravity="center_horizontal">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/round_button"
+                    android:src="@drawable/menu_map"
+                    android:scaleType="fitCenter"
+
+                    android:layout_centerHorizontal="true"
+
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textColor="#fff" />
+
+
+                <!--android:layout_margin="@dimen/fab_margin"-->
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/round_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:padding="10px"
+                    android:src="@drawable/menu_back_arrow"
+                    android:textColor="#fff" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

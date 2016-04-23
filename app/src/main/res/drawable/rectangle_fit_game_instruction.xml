@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <item
+        android:top="10dp"
+        android:bottom="10dp"
+        android:right="10dp"
+        android:left="10dp">
+
+        <shape android:shape="rectangle">
+            <size
+                android:width="550dp"
+                android:height="50dp" />
+            <solid android:color="#ffffff" />
+        </shape>
+</item>
+
+        <!-- triangle -->
+    <item>
+        <rotate
+            android:fromDegrees="45"
+            android:toDegrees="45"
+            android:pivotX="100%"
+            android:pivotY="100%">
+            <shape
+                android:shape="rectangle" >
+
+                <solid
+                    android:color="#126578" />
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- These rectangles for the right side  https://looksok.wordpress.com/2013/08/24/android-triangle-arrow-defined-as-an-xml-shape/ -->
+    <!-- Their color should be the same as layout's -->
+</layer-list>

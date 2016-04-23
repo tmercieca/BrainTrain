@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:state_pressed="false"><!-- -->
+    <shape android:shape="rectangle">
+        <!-- game preview button width + 15 px or dp?-->
+        <size
+            android:width="115dp"
+            android:height="35dp"
+            />
+        <stroke
+            android:width="2dp"
+
+            android:color="#FFD7CCC8"
+            />
+        <corners
+            android:bottomRightRadius="15dp"
+            android:bottomLeftRadius="15dp"
+            android:topLeftRadius="15dp"
+            android:topRightRadius="15dp"/>
+        <solid android:color="#2962ff"/>
+
+    </shape>
+</item>
+
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+
+            <size
+                android:width="110dp"
+                android:height="30dp"
+                />
+            <stroke
+                android:width="2dp"
+
+                android:color="#b15838"
+                />
+            <corners
+                android:bottomRightRadius="15dp"
+                android:bottomLeftRadius="15dp"
+                android:topLeftRadius="15dp"
+                android:topRightRadius="15dp"/>
+            <solid android:color="#0f1a38"/>
+
+        </shape>
+    </item>
+
+
+    </selector>
