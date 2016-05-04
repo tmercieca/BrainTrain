@@ -1,10 +1,13 @@
 package com.gapt.uni.braintrain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+
+import java.util.regex.Pattern;
 
 public class GameSelectionActivity extends AppCompatActivity implements View.OnTouchListener {
 
@@ -51,7 +54,8 @@ public class GameSelectionActivity extends AppCompatActivity implements View.OnT
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     thumbTop1.setPressed(true);
                     thumbBot1.setPressed(true);
-                }
+                    startActivity(new Intent(GameSelectionActivity.this, PatternGameActivity.class));
+                    }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         thumbTop1.setPressed(false);
                         thumbBot1.setPressed(false);
@@ -62,6 +66,8 @@ public class GameSelectionActivity extends AppCompatActivity implements View.OnT
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
                         thumbTop1.setPressed(true);
                         thumbBot1.setPressed(true);
+                        startActivity(new Intent(GameSelectionActivity.this, PatternGameActivity.class));
+
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         thumbTop1.setPressed(false);

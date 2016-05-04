@@ -23,8 +23,8 @@
 <activity android:screenOrientation="landscape"
     android:name=".BrainMapActivity"
     android:theme="@style/AppTheme.CustomTheme">
-
 </activity>
+        <activity android:name=".PatternGameActivity" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

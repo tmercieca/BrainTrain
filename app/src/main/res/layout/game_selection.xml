@@ -28,6 +28,7 @@ android:id="@+id/root"
                     android:src="@drawable/title"
                     android:scaleType="fitStart"
                     android:id="@+id/main_title" />
+
                 <!--<ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
