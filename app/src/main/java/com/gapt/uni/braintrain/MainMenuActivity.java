@@ -29,8 +29,6 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
         testForNow.setOnClickListener(this);
     }
 
-
-
     @Override
     public void onClick(View v) {
 
