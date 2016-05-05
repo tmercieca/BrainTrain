@@ -30,7 +30,6 @@ public class BrainMapActivity extends Activity {
 
     }
 
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
