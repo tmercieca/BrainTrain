@@ -14,14 +14,14 @@ import android.widget.TextView;
 
 import gr.net.maroulis.library.EasySplashScreen;
 
-public class MainActivity extends Activity {
+public class Splash extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
-        EasySplashScreen config = new EasySplashScreen(MainActivity.this)
+        EasySplashScreen config = new EasySplashScreen(Splash.this)
                 .withFullScreen()
                 .withTargetActivity(MainMenuActivity.class)
                 .withSplashTimeOut(4000)
