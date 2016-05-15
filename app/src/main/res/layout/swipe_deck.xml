@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gapt.uni.braintrain.libs.SwipeFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipedeck="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Button" />
+
+    <com.gapt.uni.braintrain.libs.SwipeDeck
+        android:id="@+id/swipe_deck"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        swipedeck:max_visible="3"
+        swipedeck:render_above="true"
+        swipedeck:card_spacing="10dp"
+        swipedeck:rotation_degrees="15"
+        android:paddingTop="5dp"
+        android:paddingBottom="200dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
+
+
+</com.gapt.uni.braintrain.libs.SwipeFrameLayout>
+
