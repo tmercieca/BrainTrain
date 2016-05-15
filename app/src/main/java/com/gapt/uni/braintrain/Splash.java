@@ -19,29 +19,38 @@ public class Splash extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        View m = getWindow().getDecorView();
+        m.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         EasySplashScreen config = new EasySplashScreen(Splash.this)
                 .withFullScreen()
-                .withTargetActivity(MainMenuActivity.class)
-                .withSplashTimeOut(4000)
-                .withBackgroundResource(android.R.color.holo_red_light)
-                .withHeaderText("BrainTrain")
+                .withTargetActivity(FactsActivity.class)
+                .withSplashTimeOut(400)
+                .withBackgroundResource(android.R.color.holo_purple)
+                .withHeaderText("")
                 .withFooterText("Copyright 2016")
-                .withBeforeLogoText("My cool company")
-                //.withLogo(R.drawable.logo)
-                .withAfterLogoText("Created by Thomas Mercieca, Samuel Borg & Graziella Debono");
+                .withBeforeLogoText("BrainTrain")
+                .withLogo(R.drawable.icon)
+                .withAfterLogoText("Created by\nThomas Mercieca,\nSamuel Borg\n& Graziella Debono");
 
 
         //set your own animations
         myCustomTextViewAnimation(config.getFooterTextView());
 
         //customize all TextViews
-        Typeface pacificoFont = Typeface.createFromAsset(getAssets(), "Pacifico.ttf");
-        config.getAfterLogoTextView().setTypeface(pacificoFont);
+        Typeface burbank = Typeface.createFromAsset(getAssets(), "BurbankBigRegularBold.ttf");
+       config.getAfterLogoTextView().setTypeface(null, Typeface.BOLD);
 
-        config.getHeaderTextView().setTextColor(Color.WHITE);
+        config.getBeforeLogoTextView().setTextColor(Color.WHITE);
         config.getFooterTextView().setTextColor(Color.WHITE);
+        config.getFooterTextView().setTextColor(Color.WHITE);
+        config.getAfterLogoTextView().setTextColor(Color.WHITE);
 
         //create the view
         View easySplashScreenView = config.create();
@@ -51,7 +60,7 @@ public class Splash extends Activity {
 
     private void myCustomTextViewAnimation(TextView tv){
         Animation animation=new TranslateAnimation(0,0,480,0);
-        animation.setDuration(1200);
+        animation.setDuration(1000);
         tv.startAnimation(animation);
     }
 }

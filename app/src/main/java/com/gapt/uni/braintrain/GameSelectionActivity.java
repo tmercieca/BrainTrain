@@ -54,7 +54,7 @@ public class GameSelectionActivity extends AppCompatActivity implements View.OnT
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     thumbTop1.setPressed(true);
                     thumbBot1.setPressed(true);
-                    startActivity(new Intent(GameSelectionActivity.this, PatternGameActivity.class));
+                    //startActivity(new Intent(GameSelectionActivity.this, PatternGameActivity.class));
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         thumbTop1.setPressed(false);
@@ -66,7 +66,7 @@ public class GameSelectionActivity extends AppCompatActivity implements View.OnT
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
                         thumbTop1.setPressed(true);
                         thumbBot1.setPressed(true);
-                        startActivity(new Intent(GameSelectionActivity.this, PatternGameActivity.class));
+                        //startActivity(new Intent(GameSelectionActivity.this, PatternGameActivity.class));
 
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -80,6 +80,7 @@ public class GameSelectionActivity extends AppCompatActivity implements View.OnT
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
                         thumbTop2.setPressed(true);
                         thumbBot2.setPressed(true);
+                        startActivity(new Intent(GameSelectionActivity.this, SoundMatchingGameActivity.class));
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         thumbTop2.setPressed(false);
@@ -91,6 +92,7 @@ public class GameSelectionActivity extends AppCompatActivity implements View.OnT
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
                         thumbTop2.setPressed(true);
                         thumbBot2.setPressed(true);
+                        startActivity(new Intent(GameSelectionActivity.this, SoundMatchingGameActivity.class));
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         thumbTop2.setPressed(false);
