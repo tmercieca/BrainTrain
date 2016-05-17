@@ -1,5 +1,6 @@
 package com.gapt.uni.braintrain;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -17,19 +18,33 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/*
-
 public class PatternGameActivity extends Activity {
 
     int score = 0;
-    int fails = 0;
-int guessed = 0;
+    //int fails = 0;
+    int guessed = 0;
+    int a= 0;
+    int b= 0;
+    int c = 0;//might need change
+    int level  = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pattern_game);
-int a = 4, b = 4;
-        int c = 9, level = 1;
+        Bundle bundle = getIntent().getExtras();
+
+        a = bundle.getInt("row");
+        b = bundle.getInt("col");
+        c = bundle.getInt("guesses");
+        level =bundle.getInt("level");
+
+        generateTable(a, b, c);
+
+        score = bundle.getInt("score");
+
+
+        /*
         do {
             removeTable(findViewById(R.id.tableOfButtons));
             generateTable(a, b ,c);
@@ -46,39 +61,23 @@ int a = 4, b = 4;
                 c++;
             }
         }while ();
-
-            ///*
-            //if (guessed == tGuesses){
-
-//                        return true;
-  //                  }
-    //                if (fails>allowedFails){
-      //                  return false;
-        //            }
-          //
-
+        */
         }
 
-                generateTable(a, b, c); //rows, cols, number of boxes which are to be guessed, can increase number of tries
+          //      generateTable(a, b, c); //rows, cols, number of boxes which are to be guessed, can increase number of tries
 
-
-        //removeTable(findViewById(R.id.tableOfButtons));
-        //removeTable();
-        //load screen
-        //next level
-    }
-
-    public void removeTable (View table){//can add delay/loading screen?
+    public void removeTable (View table) {
         ((ViewGroup) table.getParent()).removeView(table);
     }
+
     public void generateTable(int tRows, int tCols, final int tGuesses){
         int i, j = 0;
-        int allowedFails = 5;
+
 
         TableLayout tableToFill = (TableLayout)findViewById(R.id.tableOfButtons);
 
         tableToFill.setGravity(Gravity.CENTER);
-        //while (true){
+
             for (i = 0; i < tRows; i++) {
                 TableRow tr = new TableRow(this);
                 tr.setGravity(Gravity.CENTER);
@@ -102,23 +101,33 @@ int a = 4, b = 4;
                                 score++;
                                 tv.setText("SCORE: " + score);
                                 guessed++;
-
-
+                                if (guessed == tGuesses) {
+                                    if (level != 10) {
+                                        finish();
+                                        Intent i = new Intent(PatternGameActivity.this, PatternGameActivity.class);
+                                        i.putExtra("score", score+1);
+                                        i.putExtra("row", a+2);
+                                        i.putExtra("col", b++);
+                                        i.putExtra("guesses", c++); //tGuesses
+                                        i.putExtra("level", level++);
+                                        startActivity(i);
+                                    } else {
+                                        //finish();
+                                    }
+                                }
                             } else {
-                                fails++;
+                                //error event
+                                finish();//close this activity
                                 Log.i("TAG", "fail");
                             }
                         }
-
-
                     });
-
                     tr.addView(ib);
-
                 }
             }
             Random r = new Random();
-            int count = 0;//number of buttons we want user to guess
+
+        int count = 0;//number of buttons we want user to guess
             String x, y;
             List<String> XYcoords = new ArrayList<>();
             do{
@@ -135,9 +144,5 @@ int a = 4, b = 4;
                 temp.setTag("1");
                 count++;
             } while(count<tGuesses);
-        //}
     }
 }
-
-
-*/

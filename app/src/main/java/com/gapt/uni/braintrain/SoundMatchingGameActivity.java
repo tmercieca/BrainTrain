@@ -14,7 +14,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import android.os.Handler;

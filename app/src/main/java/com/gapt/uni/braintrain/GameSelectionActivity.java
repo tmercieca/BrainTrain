@@ -42,7 +42,6 @@ public class GameSelectionActivity extends AppCompatActivity implements View.OnT
 
     public boolean onTouch(View v, MotionEvent event) {
 
-
         ImageButton thumbTop1 = (ImageButton) findViewById(R.id.upper_thumbnail_1);
         ImageButton thumbBot1 = (ImageButton) findViewById(R.id.lower_thumbnail_1);
         ImageButton thumbTop2 = (ImageButton) findViewById(R.id.upper_thumbnail_2);
@@ -54,7 +53,14 @@ public class GameSelectionActivity extends AppCompatActivity implements View.OnT
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     thumbTop1.setPressed(true);
                     thumbBot1.setPressed(true);
-                    //startActivity(new Intent(GameSelectionActivity.this, PatternGameActivity.class));
+                        Intent i = new Intent(GameSelectionActivity.this, PatternGameActivity.class);
+                        i.putExtra("row", 1);
+                        i.putExtra("col", 2);
+                        i.putExtra("guesses", 1);
+                        i.putExtra("level", 1);
+                        i.putExtra("score", 0);
+
+                    startActivity(i);
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         thumbTop1.setPressed(false);
@@ -66,8 +72,21 @@ public class GameSelectionActivity extends AppCompatActivity implements View.OnT
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
                         thumbTop1.setPressed(true);
                         thumbBot1.setPressed(true);
-                        //startActivity(new Intent(GameSelectionActivity.this, PatternGameActivity.class));
 
+                        Intent i = new Intent(GameSelectionActivity.this, PatternGameActivity.class);
+                        i.putExtra("row", 1);
+                        i.putExtra("col", 2);
+                        i.putExtra("guesses", 1);
+                        i.putExtra("level", 1);
+                        i.putExtra("score", 0);
+
+
+
+
+
+
+
+                        startActivity(i);
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         thumbTop1.setPressed(false);

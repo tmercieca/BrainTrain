@@ -30,7 +30,7 @@ public class Splash extends Activity {
 
         EasySplashScreen config = new EasySplashScreen(Splash.this)
                 .withFullScreen()
-                .withTargetActivity(FactsActivity.class)
+                .withTargetActivity(GameSelectionActivity.class)
                 .withSplashTimeOut(400)
                 .withBackgroundResource(android.R.color.holo_purple)
                 .withHeaderText("")
@@ -59,7 +59,7 @@ public class Splash extends Activity {
     }
 
     private void myCustomTextViewAnimation(TextView tv){
-        Animation animation=new TranslateAnimation(0,0,480,0);
+        Animation animation = new TranslateAnimation(0,0,480,0);
         animation.setDuration(1000);
         tv.startAnimation(animation);
     }

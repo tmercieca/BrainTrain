@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 
-/**
- * Created by Thomas on 25/04/16.
- */
 public class BrainMapActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
