@@ -103,21 +103,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_gravity="center"
                                     android:id="@+id/table_with_choices">
-                                    <!--
-                            <TableRow>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_bear" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_tiger" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_bear" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_tiger" android:scaleType="fitXY"/>
-                            </TableRow>
 
-                            <TableRow>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_dog" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_lion" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_bear" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_tiger" android:scaleType="fitXY"/>
-                            </TableRow>
-                            -->
 
                                 </TableLayout>
 

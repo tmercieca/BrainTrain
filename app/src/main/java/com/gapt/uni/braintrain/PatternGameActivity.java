@@ -1,8 +1,11 @@
 package com.gapt.uni.braintrain;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
 import android.os.Bundle;
-import android.os.SystemClock;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -11,22 +14,19 @@ import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class PatternGameActivity extends Activity {
 
+    //below is initialisation values. values are passed from activities
     int score = 0;
-    //int fails = 0;
     int guessed = 0;
-    int a= 0;
-    int b= 0;
-    int c = 0;//might need change
-    int level  = 0;
+    int rowNo= 0;
+    int colNo= 0;
+    int toGuessNo = 0;//might need change
+    int level  = 0;//first
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,62 +34,39 @@ public class PatternGameActivity extends Activity {
         setContentView(R.layout.activity_pattern_game);
         Bundle bundle = getIntent().getExtras();
 
-        a = bundle.getInt("row");
-        b = bundle.getInt("col");
-        c = bundle.getInt("guesses");
+        rowNo = bundle.getInt("row");
+        colNo = bundle.getInt("col");
+        toGuessNo = bundle.getInt("guesses");
         level =bundle.getInt("level");
-
-        generateTable(a, b, c);
-
+        generateTable(rowNo, colNo, toGuessNo);
         score = bundle.getInt("score");
-
-
-        /*
-        do {
-            removeTable(findViewById(R.id.tableOfButtons));
-            generateTable(a, b ,c);
-            //win/lose conditoins
-            //reset vals
-            level = level++;
-            if ((level % 3)== 0){
-                a++;
-            }
-            else if ((level%3) == 1){
-                b++;
-            }
-            else if ((level%3) == 2){
-                c++;
-            }
-        }while ();
-        */
         }
-
-          //      generateTable(a, b, c); //rows, cols, number of boxes which are to be guessed, can increase number of tries
 
     public void removeTable (View table) {
         ((ViewGroup) table.getParent()).removeView(table);
     }
 
-    public void generateTable(int tRows, int tCols, final int tGuesses){
-        int i, j = 0;
+    public void generateTable(int row, int col, final int totalToGuess){
+        //int rows, cols = 0; // to create
 
 
         TableLayout tableToFill = (TableLayout)findViewById(R.id.tableOfButtons);
 
         tableToFill.setGravity(Gravity.CENTER);
-
-            for (i = 0; i < tRows; i++) {
+            for (int r  = 0; r < row; r++) {
                 TableRow tr = new TableRow(this);
                 tr.setGravity(Gravity.CENTER);
                 tableToFill.addView(tr);
-                for (j = 0; j < tCols; j++) {
+                for (int c = 0; c < col; c++) {
                     final ImageButton ib = new ImageButton(this);
-                    TableRow.LayoutParams params = new TableRow.LayoutParams();
 
-                    //check this line below - deprecated past 21. we are on 19
+                    //TableRow.LayoutParams params = new TableRow.LayoutParams();
+                    ib.setEnabled(false);
                     ib.setImageDrawable(getResources().getDrawable(R.drawable.pattern_block));
-                    ib.setId(Integer.parseInt(Integer.toString(i) + Integer.toString(j)));
-                    ib.setTag("0"); //imp otherwise is set null and crashes program
+                    ib.setBackgroundResource(0);
+                    ib.setId(Integer.parseInt(Integer.toString(r) + Integer.toString(c)));
+                    ib.setTag("0");
+
                     ib.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -97,22 +74,39 @@ public class PatternGameActivity extends Activity {
 
                                 TextView tv = (TextView) findViewById(R.id.score);
                                 Log.i("TAG", "success");
-                                ib.setTag("0"); //so as not to be able to click again click again
-                                score++;
+                                ib.setTag("0"); //so as not to be able to click again
                                 tv.setText("SCORE: " + score);
                                 guessed++;
-                                if (guessed == tGuesses) {
-                                    if (level != 10) {
+                               ib.getDrawable().setColorFilter(new LightingColorFilter(Color.GREEN, 1));
+                                if (guessed == totalToGuess) {
+                                    level++; //next level
+                                    if (level < 13) {
                                         finish();
                                         Intent i = new Intent(PatternGameActivity.this, PatternGameActivity.class);
-                                        i.putExtra("score", score+1);
-                                        i.putExtra("row", a+2);
-                                        i.putExtra("col", b++);
-                                        i.putExtra("guesses", c++); //tGuesses
-                                        i.putExtra("level", level++);
+                                        if (level == 3 || level == 9) {
+                                            rowNo++;
+                                        } else if (level == 2 || level == 4 || level == 6) {
+                                            colNo++;
+                                        } else if (level == 5 || level == 7 || level == 8 || level == 10 || level == 11 || level == 12) {
+                                            toGuessNo++;
+                                        } else {
+                                            finish();
+                                        }
+                                        //game over level>10
+                                        score += (level * level) + 1;
+                                        i.putExtra("score", score);
+                                        i.putExtra("row", rowNo);
+                                        i.putExtra("col", colNo);
+                                        i.putExtra("guesses", toGuessNo);
+                                        i.putExtra("level", level);
+                                        Log.i("score", "" + score);
+                                        Log.i("row", "" + rowNo);
+                                        Log.i("col", "" + colNo);
+                                        Log.i("guesses", "" + toGuessNo);
+                                        Log.i("level", "" + level);
                                         startActivity(i);
                                     } else {
-                                        //finish();
+                                        finish();
                                     }
                                 }
                             } else {
@@ -131,8 +125,9 @@ public class PatternGameActivity extends Activity {
             String x, y;
             List<String> XYcoords = new ArrayList<>();
             do{
-                x = Integer.toString(r.nextInt(i));
-                y = Integer.toString(r.nextInt(j));
+                Log.i("row, col", ""+row+col);
+                x = Integer.toString(r.nextInt(row));
+                y = Integer.toString(r.nextInt(col));
 
                 if (XYcoords.contains(x+y)) {
                     continue; //value is duplicate. generate another
@@ -143,6 +138,34 @@ public class PatternGameActivity extends Activity {
                 ImageButton temp = (ImageButton)findViewById(Integer.parseInt(x+y));
                 temp.setTag("1");
                 count++;
-            } while(count<tGuesses);
+            } while(count<totalToGuess);
+
+        for (String coords : XYcoords){
+            final ImageButton ib = (ImageButton)findViewById(Integer.parseInt(coords));
+            final ColorFilter originalColour = ib.getColorFilter();
+            ib.getDrawable().setColorFilter(new LightingColorFilter(Color.CYAN, 1));
+            //ib.setColorFilter(new LightingColorFilter(Color.CYAN, 1));
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                   ib.getDrawable().setColorFilter(originalColour);
+                   // ib.setColorFilter(originalColour);
+                    for (int r2  = 0; r2 < rowNo; r2++) {
+                        for (int c = 0; c < colNo; c++) {
+                            ImageButton ib = (ImageButton)findViewById(Integer.parseInt(""+r2+c));
+                            ib.setEnabled(true);
+                            //ib.setId(Integer.parseInt(Integer.toString(r) + Integer.toString(c)));
+                        }
+                    }
+                }
+            }, 2000);
+
+        }
+
     }
+
+    //protected void onStop(){
+      //  score;
+    //}
 }
