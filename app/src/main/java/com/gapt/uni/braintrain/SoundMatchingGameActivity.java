@@ -1,7 +1,9 @@
 package com.gapt.uni.braintrain;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -227,6 +229,14 @@ public class SoundMatchingGameActivity extends Activity {
     protected void onStop() {
         stopPlaying(mp2);
         stopPlaying(mMediaPlayer);
+
+        //save score when activity is finished
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("score", score);
+        editor.commit();
+        editor.apply();
+
         super.onStop();
     }
 
@@ -250,8 +260,6 @@ public class SoundMatchingGameActivity extends Activity {
         return shuffledList;
 
     }
-
-
 
 
 

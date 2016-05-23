@@ -1,6 +1,7 @@
 package com.gapt.uni.braintrain;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -31,6 +33,14 @@ int score = 0;//load from DB
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+         final String PREFS_NAME = "MyPrefsFile";
+
+        SharedPreferences settings = getApplicationContext().getSharedPreferences(PREFS_NAME, 0);
+
+        int score = settings.getInt("score", 0); //set score to 0 if score not found
+
+
+
         //ImageButton thumbTop1 = (ImageButton) findViewById(R.id.upper_thumbnail_1);
         //ImageButton thumbBot1 = (ImageButton) findViewById(R.id.lower_thumbnail_1);
         //ImageButton thumbTop2 = (ImageButton) findViewById(R.id.upper_thumbnail_2);
@@ -43,12 +53,13 @@ int score = 0;//load from DB
        // thumbBot1.setOnTouchListener(this);
         //thumbBot2.setOnTouchListener(this);
         //thumbBot3.setOnTouchListener(this);
-
+        Button b = (Button) findViewById(R.id.brain_map_button);
+        b.setOnTouchListener(this);
         ImageButton  sgm = (ImageButton) findViewById(R.id.sound_game_mapping);
         ImageButton  mgm = (ImageButton) findViewById(R.id.memory_game_mapping);
 
-        //sgm.setOnTouchListener(this);
-        //mgm.setOnTouchListener(this);
+        sgm.setOnTouchListener(this);
+        mgm.setOnTouchListener(this);
 
 
         //ImageView trainBody = (ImageView) findViewById(R.id.train_body);
@@ -120,10 +131,21 @@ int score = 0;//load from DB
                         i.putExtra("score", score);
 
                         startActivity(i);
-                        Log.i("tag", "ad");
+
                         Log.i("Action down","ad");
                     }
                     break;
+                case R.id.brain_map_button:
+                    if (event.getAction() == MotionEvent.ACTION_DOWN){
+
+                    }
+
+
+                    if (event.getAction() == MotionEvent.ACTION_UP){
+                        Intent i = new Intent (GameSelectionActivity.this, BrainMapActivity.class);
+                        startActivity(i);
+                    }
+
 
             }
             return true;

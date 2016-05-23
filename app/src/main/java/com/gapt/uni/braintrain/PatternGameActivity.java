@@ -1,6 +1,8 @@
 package com.gapt.uni.braintrain;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
@@ -163,6 +165,15 @@ public class PatternGameActivity extends Activity {
 
         }
 
+    }
+
+    protected void onStop(){
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("score", score);
+        editor.commit();
+        editor.apply();
+        super.onStop();
     }
 
     //protected void onStop(){
