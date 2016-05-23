@@ -1,11 +1,12 @@
 package com.gapt.uni.braintrain;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.gapt.uni.braintrain.libs.SwipeDeck;
 
@@ -16,6 +17,7 @@ public class FactsActivity extends AppCompatActivity{
     private static final String TAG = "MainActivity";
     private SwipeDeck cardStack;
     private Context context = this;
+    int current = 0;
 
     private SwipeDeckAdapter adapter;
     private ArrayList<String> fact;
@@ -39,16 +41,38 @@ public class FactsActivity extends AppCompatActivity{
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        setContentView(R.layout.swipe_deck);
+        setContentView(R.layout.activity_facts);
         cardStack = (SwipeDeck) findViewById(R.id.swipe_deck);
 
         final ArrayList<String> fact = new ArrayList<>();
-        fact.add("0");
+
+//        switch()
+        fact.add("This is a test");
         fact.add("1");
         fact.add("2");
         fact.add("3");
         fact.add("4");
         fact.add("5");
+
+        Button btn = (Button) findViewById(R.id.left);
+        if (btn != null) {
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cardStack.swipeTopCardLeft(current);
+
+                }
+            });
+        }
+
+        Button btn2 = (Button) findViewById(R.id.right);
+        assert btn2 != null;
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardStack.swipeTopCardRight(current);
+            }
+        });
 
         final SwipeDeckAdapter adapter = new SwipeDeckAdapter(fact, this);
         cardStack.setAdapter(adapter);
@@ -57,10 +81,12 @@ public class FactsActivity extends AppCompatActivity{
 
             public void cardSwipedLeft(int position) {
                 Log.i("MainActivity", "card was swiped left, position in adapter: " + position);
+                current = position;
             }
 
             public void cardSwipedRight(int position) {
                 Log.i("MainActivity", "card was swiped right, position in adapter: " + position);
+                current = position;
             }
 
             @Override
@@ -78,4 +104,5 @@ public class FactsActivity extends AppCompatActivity{
 
         });
     }
+
 }

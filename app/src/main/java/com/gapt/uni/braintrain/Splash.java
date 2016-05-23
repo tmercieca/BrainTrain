@@ -60,7 +60,7 @@ public class Splash extends Activity {
 
     private void myCustomTextViewAnimation(TextView tv){
         Animation animation=new TranslateAnimation(0,0,480,0);
-        animation.setDuration(1000);
+        animation.setDuration(200);
         tv.startAnimation(animation);
     }
 }

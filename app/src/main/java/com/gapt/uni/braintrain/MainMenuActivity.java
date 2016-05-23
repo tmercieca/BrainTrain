@@ -34,6 +34,8 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
 
         ImageButton map = (ImageButton)findViewById(R.id.brain_map_button);
         ImageButton testForNow = (ImageButton)findViewById(R.id.test_for_now);
+        map.setTag(1);
+        testForNow.setTag(2);
 
         switch(v.getId()){
             case R.id.brain_map_button: startActivity(new Intent(MainMenuActivity.this, BrainMapActivity.class));

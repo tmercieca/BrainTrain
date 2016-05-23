@@ -9,6 +9,7 @@ import android.view.View;
  * Created by Thomas on 25/04/16.
  */
 public class BrainMapActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         View m = getWindow().getDecorView();
