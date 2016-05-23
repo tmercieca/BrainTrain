@@ -1,3 +1,4 @@
+//SoundMatchingGameActivity.java
 package com.gapt.uni.braintrain;
 
 import android.app.Activity;
@@ -45,7 +46,6 @@ public class SoundMatchingGameActivity extends Activity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
 
         listOfAnimals.add(new Animal("Bear", R.mipmap.animals_bear, R.raw.bear_growl));//0
         listOfAnimals.add(new Animal("Lion", R.mipmap.animals_lion, R.raw.lion_growling));//1

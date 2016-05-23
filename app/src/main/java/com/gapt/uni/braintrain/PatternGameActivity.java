@@ -1,3 +1,5 @@
+//PatternGameActivity.java
+
 package com.gapt.uni.braintrain;
 import android.app.Activity;
 import android.content.Context;

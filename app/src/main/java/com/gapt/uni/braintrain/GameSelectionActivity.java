@@ -1,3 +1,4 @@
+//GameSelectionActivity.java
 package com.gapt.uni.braintrain;
 
 import android.content.Intent;
