@@ -5,20 +5,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
-import java.util.regex.Pattern;
 
 public class GameSelectionActivity extends AppCompatActivity implements View.OnTouchListener {
 int score = 0;//load from DB
@@ -54,6 +48,7 @@ int score = 0;//load from DB
        // thumbBot1.setOnTouchListener(this);
         //thumbBot2.setOnTouchListener(this);
         //thumbBot3.setOnTouchListener(this);
+
         Button b = (Button) findViewById(R.id.brain_map_button);
         b.setOnTouchListener(this);
         ImageButton  sgm = (ImageButton) findViewById(R.id.sound_game_mapping);

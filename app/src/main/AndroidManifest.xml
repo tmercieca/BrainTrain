@@ -19,16 +19,21 @@
         </activity>
         <activity android:name=".PopupActivity" android:screenOrientation="landscape" android:theme="@style/AppTheme.CustomTheme"></activity>
        <activity android:name=".MainMenuActivity" android:screenOrientation="landscape"></activity>
-        <activity android:screenOrientation="landscape" android:name=".GameSelectionActivity">
+        <activity
+            android:name=".GameSelectionActivity"
+            android:screenOrientation="landscape">
         </activity>
         <activity android:name=".FactsActivity" android:screenOrientation="landscape"></activity>
-<activity android:screenOrientation="landscape"
-    android:name=".BrainMapActivity"
+        <activity
+            android:name=".BrainMapActivity"
+            android:screenOrientation="landscape"
     android:theme="@style/AppTheme.CustomTheme">
 </activity>
         <activity android:name=".PatternGameActivity" android:screenOrientation="landscape"></activity>
         <activity android:name=".SoundMatchingGameActivity" android:screenOrientation="landscape"></activity>
-
+        <activity
+            android:name=".LoadingScreenActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

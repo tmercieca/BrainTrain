@@ -1,8 +1,6 @@
 //Animal.java
 
 package com.gapt.uni.braintrain;
-
-
 public class Animal{
     private String name;
     private int drawable, soundRes;
@@ -17,12 +15,12 @@ public class Animal{
         return name;
     }
 
-    public int getDrawable() {
-        return drawable;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getDrawable() {
+        return drawable;
     }
 
     public void setDrawable(int drawable) {
