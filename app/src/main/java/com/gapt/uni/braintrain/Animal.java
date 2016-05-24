@@ -1,9 +1,11 @@
-package com.gapt.uni.braintrain;
+//Animal.java
 
+package com.gapt.uni.braintrain;
 public class Animal{
-    String name;
-    int drawable, soundRes;
-        Animal (String name, int drawable, int soundRes){
+    private String name;
+    private int drawable, soundRes;
+    Animal(){}
+    Animal (String name, int drawable, int soundRes){
             this.name = name;
             this.drawable = drawable;
             this.soundRes = soundRes;
@@ -13,12 +15,12 @@ public class Animal{
         return name;
     }
 
-    public int getDrawable() {
-        return drawable;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getDrawable() {
+        return drawable;
     }
 
     public void setDrawable(int drawable) {

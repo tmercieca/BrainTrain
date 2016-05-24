@@ -7,10 +7,11 @@
     >
 
     <ImageView
+        android:id="@+id/background_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/gameover"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        android:src="@drawable/gameover" />
     <TextView
         android:id="@+id/textviewInPopup"
         android:layout_width="wrap_content"
@@ -42,8 +43,8 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
 
-            android:text="Play again!"
             android:background="@drawable/thumbnail_button"
+            android:text="Cancel"
 />
 
     </RelativeLayout>
@@ -60,8 +61,8 @@
 
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:text="Game selection!"
                 android:background="@drawable/thumbnail_button"
+                android:text="Play"
                 />
 
         </RelativeLayout>

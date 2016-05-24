@@ -57,7 +57,7 @@ android:id="@+id/root"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/train_body"
-                        android:src="@drawable/train4"
+                        android:src="@drawable/train"
                         />
 
                     <LinearLayout
