@@ -23,15 +23,6 @@ public class FactsActivity extends AppCompatActivity{
 
     private SwipeDeckAdapter adapter;
     private ArrayList<String> fact;
-
-//    public void setLeftImage(int imageResource) {
-//        leftImageResource = imageResource;
-//    }
-//
-//    public void setRightImage(int imageResource) {
-//        rightImageResource = imageResource;
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +68,8 @@ public class FactsActivity extends AppCompatActivity{
 
                 case "stem":
                     fact.add("This is a test");
-                    fact.add("1");
                     fact.add("2");
+                    fact.add("1");
                     fact.add("3");
                     fact.add("4");
                     fact.add("this text will not appear");

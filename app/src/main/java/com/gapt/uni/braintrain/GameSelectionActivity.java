@@ -48,12 +48,7 @@ int score = 0;//load from DB
        // thumbBot1.setOnTouchListener(this);
         //thumbBot2.setOnTouchListener(this);
         //thumbBot3.setOnTouchListener(this);
-<<<<<<< HEAD
         ImageButton b = (ImageButton) findViewById(R.id.brain_map_button);
-=======
-
-        Button b = (Button) findViewById(R.id.brain_map_button);
->>>>>>> origin/master
         b.setOnTouchListener(this);
         ImageButton  sgm = (ImageButton) findViewById(R.id.sound_game_mapping);
         ImageButton  mgm = (ImageButton) findViewById(R.id.memory_game_mapping);
