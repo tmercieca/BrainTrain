@@ -28,7 +28,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/round_button"
-                    android:src="@drawable/menu_question_mark"
+                    android:src="@drawable/retry"
                     android:scaleType="fitCenter"
                     android:layout_centerHorizontal="true"
                     android:gravity="center_vertical|center_horizontal"
@@ -64,7 +64,8 @@
                     android:id="@+id/score"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="120dp" />
+                    android:layout_marginEnd="120dp"
+                    android:gravity="top|center_horizontal" />
 
             </RelativeLayout>
 
@@ -103,21 +104,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_gravity="center"
                                     android:id="@+id/table_with_choices">
-                                    <!--
-                            <TableRow>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_bear" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_tiger" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_bear" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_tiger" android:scaleType="fitXY"/>
-                            </TableRow>
 
-                            <TableRow>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_dog" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_lion" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_bear" android:scaleType="fitXY"/>
-                                <ImageButton android:layout_width="100dp" android:layout_height="100dp" android:src="@drawable/animals_tiger" android:scaleType="fitXY"/>
-                            </TableRow>
-                            -->
 
                                 </TableLayout>
 

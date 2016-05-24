@@ -1,8 +1,5 @@
 package com.gapt.uni.braintrain;
 
-/**
- * Created by Thomas on 10/05/16.
- */
 public class Animal{
     String name;
     int drawable, soundRes;

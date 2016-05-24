@@ -22,6 +22,18 @@ android:id="@+id/root"
                 android:layout_height="0dp"
                 android:id="@+id/upper"
                 android:layout_weight="2">
+                <ImageButton
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/mapbtn"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/brain_map_button"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="top"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -29,18 +41,6 @@ android:id="@+id/root"
                     android:scaleType="fitStart"
                     android:id="@+id/main_title" />
 
-                <!--<ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/round_button"
-                    android:src="@drawable/menu_map"
-                    android:scaleType="fitCenter"
-                    android:layout_centerHorizontal="true"
-
-                    android:gravity="center_vertical|center_horizontal"
-                    android:textColor="#fff" />
--->
-                <!--android:layout_margin="@dimen/fab_margin"-->
             </RelativeLayout>
 
             <RelativeLayout
@@ -48,131 +48,97 @@ android:id="@+id/root"
                 android:layout_height="0dp"
                 android:layout_weight="5"
                 android:id="@+id/lower">
-
-                <LinearLayout
-                    android:clickable="true"
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <RelativeLayout
-                        android:layout_width="0px"
-                        android:layout_height="match_parent"
-                        android:layout_weight="8">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/train_body"
+                        android:src="@drawable/train4"
+                        />
+
                     <LinearLayout
-                        android:clickable="true"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                         <!--using this rel layout so image views dont use weights
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@null"
-                            android:src="@drawable/game_instruction"
-                            android:padding="70dp"
-                            />
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_marginLeft="-16dp"
-                                android:layout_height="wrap_content"
-                                android:background="@null"
-                                android:src="@drawable/rectangle_fit_game_instruction"
-                                android:padding="70dp"
-                                />
-                        </RelativeLayout>
--->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:clickable="true"
-                            android:id="@+id/button1"
-                            android:gravity="center">
-                            <ImageButton
-                                android:clickable="true"
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/game_preview_button"
-                                android:gravity="center_vertical|center_horizontal"
-                                android:scaleType="fitCenter"
-                                android:textColor="#fff"
-                                android:id="@+id/upper_thumbnail_1"
-                                />
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@null"
-                                android:src="@drawable/thumbnail_button"
-                                android:layout_marginTop="-15dp"
-                                android:id="@+id/lower_thumbnail_1"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:id="@+id/button2"
-                            android:orientation="vertical"
-                            android:gravity="center">
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/game_preview_button"
-                                android:gravity="center_vertical|center_horizontal"
-                                android:scaleType="fitCenter"
-                                android:id="@+id/upper_thumbnail_2"
-                                android:textColor="#fff"
-                                />
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@null"
-                                android:id="@+id/lower_thumbnail_2"
-                                android:src="@drawable/thumbnail_button"
-                                android:layout_marginTop="-15dp"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:clickable="true"
-                            android:id="@+id/button3"
-                            android:gravity="center">
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/game_preview_button"
-                                android:gravity="center_vertical|center_horizontal"
-                                android:scaleType="fitCenter"
-                                android:textColor="#fff"
-                                android:id="@+id/upper_thumbnail_3"
-                                />
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@null"
-
-                                android:src="@drawable/thumbnail_button"
-                                android:layout_marginTop="-15dp"
-                                android:id="@+id/lower_thumbnail_3"
-                                />
-                        </LinearLayout>
-                     </LinearLayout>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="0px"
                         android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:id="@+id/front_train_view">
-                        </RelativeLayout>
-                </LinearLayout>
+                        android:orientation="vertical"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0px"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="invisible"
+                                android:src="#0086ce"/>
+                        </LinearLayout>
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0px"
+                            android:orientation="horizontal"
+                            android:layout_weight="7">
+                            <ImageView
+                                android:layout_weight="11.61"
+                                android:layout_width="0dp"
+                                android:layout_height="311dp"
+                                android:visibility="invisible"
+                                android:src="#993456"/>
+                            <ImageButton
+                                android:layout_weight="7.82"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:visibility="visible"
+                                android:id="@+id/memory_game_mapping"
+                                android:background="?attr/selectableItemBackground"
+                                />
+
+                            <ImageButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:visibility="visible"
+                                android:background="@null"
+                                android:id="@+id/sound_game_mapping"
+                                android:layout_weight="7.82"/>
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="973dp"
+                                android:src="#00211d"
+                                android:layout_weight="1.1"
+                                android:visibility="invisible"
+                                />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0px"
+                            android:layout_weight="2">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="#0086ce"
+                                android:visibility="invisible"
+                                />
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+
+                </FrameLayout>
+
+
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
