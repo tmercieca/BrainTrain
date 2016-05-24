@@ -34,8 +34,7 @@
                     android:text="SCORE"
                     android:id="@+id/score"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="120dp" />
+                    android:layout_centerHorizontal="true" />
             </RelativeLayout>
 
             <RelativeLayout

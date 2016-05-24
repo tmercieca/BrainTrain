@@ -100,6 +100,7 @@ public class FactsActivity extends AppCompatActivity{
                     fact.add("3");
                     fact.add("4");
                     fact.add("this text will not appear");
+
                     break;
             }
 
