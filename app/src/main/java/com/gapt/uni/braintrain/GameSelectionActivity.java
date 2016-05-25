@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -48,12 +47,12 @@ int score = 0;//load from DB
        // thumbBot1.setOnTouchListener(this);
         //thumbBot2.setOnTouchListener(this);
         //thumbBot3.setOnTouchListener(this);
-<<<<<<< HEAD
-        ImageButton b = (ImageButton) findViewById(R.id.brain_map_button);
-=======
 
-        Button b = (Button) findViewById(R.id.brain_map_button);
->>>>>>> origin/master
+        ImageButton b = (ImageButton) findViewById(R.id.brain_map_button);
+
+
+        //Button b = (Button) findViewById(R.id.brain_map_button);
+
         b.setOnTouchListener(this);
         ImageButton  sgm = (ImageButton) findViewById(R.id.sound_game_mapping);
         ImageButton  mgm = (ImageButton) findViewById(R.id.memory_game_mapping);
@@ -109,13 +108,10 @@ int score = 0;//load from DB
 
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        Intent i = new Intent(GameSelectionActivity.this, PatternGameActivity.class);
-                        i.putExtra("row", 1);
-                        i.putExtra("col", 2);
-                        i.putExtra("guesses", 1);
-                        i.putExtra("level", 1);
+                        //  Intent i = new Intent(GameSelectionActivity.this, sound.class);
+                        Intent i = new Intent(GameSelectionActivity.this, PopupActivity.class);
+                        i.putExtra("type", "sound_matching");
                         i.putExtra("score", score);
-
                         startActivity(i);
                     }
                     break;
@@ -127,11 +123,12 @@ int score = 0;//load from DB
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
 
-                        Intent i = new Intent(GameSelectionActivity.this, SoundMatchingGameActivity.class);
+                        //Intent i = new Intent(GameSelectionActivity.this, pattern.class);
+                        Intent i = new Intent(GameSelectionActivity.this, PopupActivity.class);
+
+                        i.putExtra("type", "pattern_matching");
                         i.putExtra("score", score);
-
                         startActivity(i);
-
                         Log.i("Action down","ad");
                     }
                     break;

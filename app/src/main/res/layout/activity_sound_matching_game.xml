@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_screen_grad_bg"
     android:gravity="center"
-    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-    android:background="@drawable/main_screen_grad_bg">
+    android:orientation="horizontal"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
     <RelativeLayout
         android:layout_width="0px"
         android:layout_height="match_parent"
@@ -14,12 +14,12 @@
             android:id="@+id/test"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:orientation="vertical">
             <RelativeLayout
+                android:id="@+id/upper"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:id="@+id/upper"
                 android:layout_weight="2"
                 >
 
@@ -27,11 +27,11 @@
                     android:id="@+id/play_button"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/round_button"
-                    android:src="@drawable/retry"
-                    android:scaleType="fitCenter"
                     android:layout_centerHorizontal="true"
+                    android:background="@drawable/round_button"
                     android:gravity="center_vertical|center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/retry"
                     android:textColor="#fff"
 
                     />
@@ -40,80 +40,80 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/round_button"
-                    android:src="@drawable/menu_back_arrow"
-                    android:scaleType="fitCenter"
                     android:gravity="center_vertical|center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/retry"
                     android:textColor="#fff" />
 
 
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:src="@drawable/title"
-                    android:scaleType="fitStart"
                     android:id="@+id/main_title"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/play_button" />
+                    android:layout_toEndOf="@+id/play_button"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/title" />
                 <TextView
+                    android:id="@+id/score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="SCORE"
-                    android:id="@+id/score"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginEnd="120dp"
-                    android:gravity="top|center_horizontal" />
+                    android:gravity="top|center_horizontal"
+                    android:text="SCORE"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/lower"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="5"
-                android:id="@+id/lower">
+                android:layout_weight="5">
 
                 <LinearLayout
-                    android:clickable="true"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:clickable="true">
                     <RelativeLayout
                         android:layout_width="0px"
                         android:layout_height="match_parent"
                         android:layout_weight="8">
                         <LinearLayout
-                            android:clickable="true"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:clickable="true">
 
 
                             <LinearLayout
+                                android:id="@+id/llWithContent"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_gravity="center"
                                 android:layout_weight="10"
                                 android:clickable="true"
-                                android:id="@+id/llWithContent"
-                                android:orientation="horizontal"
                                 android:gravity="center"
-                                android:layout_gravity="center"
+                                android:orientation="horizontal"
                                 >
                                 <TableLayout
+                                    android:id="@+id/table_with_choices"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_gravity="center"
-                                    android:id="@+id/table_with_choices">
+                                    android:layout_gravity="center">
 
 
                                 </TableLayout>
 
                                 <TableLayout
+                                    android:id="@+id/tableOfButtons"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:gravity="center"
 
-                                    android:id="@+id/tableOfButtons">
+                                    android:gravity="center">
 
 
                                 </TableLayout>

@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -15,11 +16,11 @@ import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import android.os.Handler;
 
 public class SoundMatchingGameActivity extends Activity {
     int score = 0;
@@ -82,6 +83,11 @@ public class SoundMatchingGameActivity extends Activity {
                 stopPlaying(mp2);
                 stopPlaying(mMediaPlayer);
                 finish();
+
+
+                Intent i = new Intent(SoundMatchingGameActivity.this, LoadingScreenActivity.class);
+                i.putExtra("type", "game_over sound");
+                startActivity(i);
             }
         });
 
@@ -167,6 +173,11 @@ public class SoundMatchingGameActivity extends Activity {
 
 
                                     finish();
+                                    Intent i = new Intent(SoundMatchingGameActivity.this, LoadingScreenActivity.class);
+                                    i.putExtra("type", "game_over sound");
+                                    startActivity(i);
+
+//gameover
                                 }
                             }, mp2.getDuration());
 

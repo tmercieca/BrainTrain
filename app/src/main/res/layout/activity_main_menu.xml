@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_screen_grad_bg"
     android:orientation="horizontal"
-    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-    android:background="@drawable/main_screen_grad_bg">
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 
 
     <RelativeLayout
@@ -17,9 +17,9 @@
             android:id="@+id/test3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:baselineAligned="false"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
@@ -30,12 +30,12 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
                     android:background="@drawable/round_button"
                     android:gravity="center_vertical|center_horizontal"
-                    android:scaleType="fitCenter"
                     android:padding="10px"
 
-                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/menu_back_arrow"
                     android:textColor="#fff" />
 
@@ -70,9 +70,9 @@
             android:id="@+id/test2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:baselineAligned="false"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
@@ -83,11 +83,10 @@
                     android:id="@+id/test_for_now"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
                     android:background="@drawable/round_button"
-                    android:src="@drawable/menu_question_mark"
-                    android:scaleType="fitCenter"
-android:layout_centerHorizontal="true"
                     android:gravity="center_vertical|center_horizontal"
+                    android:scaleType="fitCenter"
                     android:textColor="#fff" />
 
 
@@ -116,23 +115,23 @@ android:layout_centerHorizontal="true"
             android:id="@+id/test"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:baselineAligned="false"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1">
                 <ImageButton
+                    android:id="@+id/brain_map_button"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/round_button"
-                    android:src="@drawable/menu_map"
-                    android:scaleType="fitCenter"
-
                     android:layout_centerHorizontal="true"
-android:id="@+id/brain_map_button"
+                    android:background="@drawable/round_button"
+
                     android:gravity="center_vertical|center_horizontal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/menu_map"
                     android:textColor="#fff" />
 
 
@@ -150,8 +149,8 @@ android:id="@+id/brain_map_button"
                     android:layout_height="50dp"
                     android:background="@drawable/round_button"
                     android:gravity="center_vertical|center_horizontal"
-                    android:scaleType="fitCenter"
                     android:padding="10px"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/menu_back_arrow"
                     android:textColor="#fff" />
 
