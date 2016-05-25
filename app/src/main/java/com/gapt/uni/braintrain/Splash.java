@@ -3,11 +3,8 @@ package com.gapt.uni.braintrain;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
@@ -30,7 +27,7 @@ public class Splash extends Activity {
 
         EasySplashScreen config = new EasySplashScreen(Splash.this)
                 .withFullScreen()
-                .withTargetActivity(FactsActivity.class)
+                .withTargetActivity(GameSelectionActivity.class)
                 .withSplashTimeOut(400)
                 .withBackgroundResource(android.R.color.holo_purple)
                 .withHeaderText("")

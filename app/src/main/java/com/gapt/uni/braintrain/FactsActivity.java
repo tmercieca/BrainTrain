@@ -39,7 +39,6 @@ public class FactsActivity extends AppCompatActivity{
 
         final ArrayList<String> fact = new ArrayList<>();
         TextView label = (TextView)findViewById(R.id.smallText);
-        ImageButton back = (ImageButton)findViewById(R.id.back_button);
         String labelstring = "";
 
         Bundle extras = getIntent().getExtras();
@@ -110,6 +109,14 @@ public class FactsActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 cardStack.swipeTopCardRight(current);
+            }
+        });
+
+        final ImageButton backButton = (ImageButton) findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

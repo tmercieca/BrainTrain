@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 public class PopupActivity extends Activity implements View.OnClickListener {
-    String type = getIntent().getExtras().getString("type");//sound, pattern, gameover
+    String type;
+    int score;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         View m = getWindow().getDecorView();
@@ -26,61 +26,51 @@ public class PopupActivity extends Activity implements View.OnClickListener {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popout);
+        type = getIntent().getExtras().getString("type"); //sound, pattern
+        score = getIntent().getExtras().getInt("score");
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
         TextView tv = (TextView) findViewById(R.id.textviewInPopup);
-
-
         Button b1 = (Button) findViewById(R.id.imageButtonLeft);
         Button b2 = (Button) findViewById(R.id.imageButtonRight);
-
         b1.setBottom(-(b1.getHeight() / 2));
         b2.setBottom(-(b2.getHeight() / 2));
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
-
-
         ImageView bg_img = (ImageView) findViewById(R.id.background_img);
-
         if (type.equals("sound_matching")) {
+            bg_img.setBackground(null);
             bg_img.setImageResource(R.drawable.how_to_sound_matching);
             tv.setText("\n\nTo play do this xyyyy.");
-
-        } else if (type.equals("pattern matching")) {
+        } else if (type.equals("pattern_matching")) {
+            bg_img.setBackground(null);
             bg_img.setImageResource(R.drawable.how_to_pattern_matching);
             tv.setText("\n\nTo play do this xx.");
-
-
-        } else if (type.equals("game_over")) {
+        } else if (type.equals("game_over pattern") || type.equals("game_over sound")) {
             bg_img.setImageResource(R.drawable.gameover);
-            b1.setText("Game Selection");
+            b1.setText("Game \nSelection");
             b2.setText("Play Again");
             tv.setText("\n\nYour brain power went up by x!\n You are now much better at spatial recognition!\nYour score is now y.");
         }
-
-
     }
 
     @Override
     public void onClick(View v) {
-        Intent i;
-        if (type.equals("sound")) {
+        Intent i = new Intent();
+        if (type.equals("sound_matching") || type.equals("game_over sound")) {
             i = new Intent(PopupActivity.this, SoundMatchingGameActivity.class);
-        } else if (type.equals("pattern")) {
+        } else if (type.equals("pattern_matching") || type.equals("game_over pattern")) {
             i = new Intent(PopupActivity.this, PatternGameActivity.class);
-        } else {
-            i = new Intent(PopupActivity.this, LoadingScreenActivity.class);
         }
 
         switch (v.getId()) {
             case R.id.imageButtonLeft:
-                if (((Button) v).getText().equals("Game Selection")) {
+                if (((Button) v).getText().equals("Game \nSelection")) {
                     i.putExtra("action", "game_selection");
                     finish();
-                    startActivity(i);
                 } else if (((Button) v).getText().equals("Cancel")) {
                     i.putExtra("action", "cancel");
                     finish();
@@ -88,16 +78,18 @@ public class PopupActivity extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.imageButtonRight:
-                if (((Button) v).getText().equals("Play Again")) {
-                    i.putExtra("action", "play_again" + type);//action[5]
+                if (((Button) v).getText().equals("Play Again") || ((Button) v).getText().equals("Play")) {
                     finish();
+                    if (type.equals("pattern_matching") || type.equals("game_over pattern")) {
+                        i.putExtra("row", 1);
+                        i.putExtra("col", 2);
+                        i.putExtra("guesses", 1);
+                        i.putExtra("level", 1);
+                    }
                     startActivity(i);
-                } else if (((Button) v).getText().equals("Play")) {
-                    i.putExtra("action", "play" + type);//action[4]
-                    finish();
-                    startActivity(i);
+                    i.putExtra("score", score);
+                    break;
                 }
-                break;
         }
     }
 
