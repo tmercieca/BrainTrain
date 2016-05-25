@@ -16,6 +16,7 @@ public class LoadingScreenActivity extends AppCompatActivity {
     List<String> factList = new ArrayList<>();
     Random r = new Random();
     String type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +33,14 @@ public class LoadingScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 finish();
-                startActivity(new Intent(LoadingScreenActivity.this, GameSelectionActivity.class));
+                //if (type.equals("game_over sound") || type.equals("game_over pattern")){
+                //  Log.i("made it here", "");
+                //startActivity(new Intent(LoadingScreenActivity.this, GameSelectionActivity.class));
+                //}
+                //startActivity(new Intent(LoadingScreenActivity.this, GameSelectionActivity.class));
                 Intent i = new Intent(LoadingScreenActivity.this, PopupActivity.class);
                 i.putExtra("type", type);
+
                 startActivity(i);
 
 

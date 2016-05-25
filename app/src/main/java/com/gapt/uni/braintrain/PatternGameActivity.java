@@ -26,7 +26,6 @@ import java.util.Random;
 
 public class PatternGameActivity extends Activity {
 
-    //below is initialisation values. values are passed from activities
     int score = 0;
     int guessed = 0;
     int rowNo= 0;
@@ -46,7 +45,7 @@ public class PatternGameActivity extends Activity {
         level =bundle.getInt("level");
         generateTable(rowNo, colNo, toGuessNo);
         score = bundle.getInt("score");
-        }
+    }
 
     public void removeTable (View table) {
         ((ViewGroup) table.getParent()).removeView(table);
@@ -86,7 +85,7 @@ public class PatternGameActivity extends Activity {
                                     level++; //next level
                                     if (level < 13) {
                                         finish();
-                                        Intent i = new Intent(PatternGameActivity.this, PatternGameActivity.class);
+                                        Intent i = new Intent(PatternGameActivity.this, LoadingScreenActivity.class);
                                         if (level == 3 || level == 9) {
                                             rowNo++;
                                         } else if (level == 2 || level == 4 || level == 6) {
@@ -96,10 +95,13 @@ public class PatternGameActivity extends Activity {
                                         } else {
                                             finish();
 //change to game over
-                                            startActivity(new Intent(PatternGameActivity.this, LoadingScreenActivity.class));
+                                            //  startActivity(new Intent(PatternGameActivity.this, GameSelectionActivity.class));
+//                                            startActivity(new Intent(PatternGameActivity.this, GameSelectionActivity.class));
+
+                                            // startActivity(new Intent(PatternGameActivity.this, LoadingScreenActivity.class));
 
                                             i.putExtra("type", "game_over pattern");
-                                            startActivity(i);
+                                            //startActivity(i);//duplicate?
 
                                         }
                                         //game over level>10

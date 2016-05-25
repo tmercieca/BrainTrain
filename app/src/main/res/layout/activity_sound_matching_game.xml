@@ -42,7 +42,7 @@
                     android:background="@drawable/round_button"
                     android:gravity="center_vertical|center_horizontal"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/retry"
+                    android:src="@drawable/menu_back_arrow"
                     android:textColor="#fff" />
 
 

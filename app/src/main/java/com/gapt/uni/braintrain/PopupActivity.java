@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 public class PopupActivity extends Activity implements View.OnClickListener {
     String type;
     int score;
+    Button b1;
+    Button b2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         View m = getWindow().getDecorView();
@@ -25,6 +28,7 @@ public class PopupActivity extends Activity implements View.OnClickListener {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_popout);
         type = getIntent().getExtras().getString("type"); //sound, pattern
         score = getIntent().getExtras().getInt("score");
@@ -34,10 +38,26 @@ public class PopupActivity extends Activity implements View.OnClickListener {
         int height = dm.heightPixels;
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
         TextView tv = (TextView) findViewById(R.id.textviewInPopup);
-        Button b1 = (Button) findViewById(R.id.imageButtonLeft);
-        Button b2 = (Button) findViewById(R.id.imageButtonRight);
-        b1.setBottom(-(b1.getHeight() / 2));
-        b2.setBottom(-(b2.getHeight() / 2));
+        b1 = (Button) findViewById(R.id.imageButtonLeft);
+        b2 = (Button) findViewById(R.id.imageButtonRight);
+        //RelativeLayout.LayoutParams rp = (RelativeLayout.LayoutParams) b1.getLayoutParams();//ou RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        //rp.topMargin = b1.getHeight()/2;
+        //b1.setLayoutParams(rp);
+        //b2.setLayoutParams(rp);//b1 and b2 can use the same parameters
+
+        //rp.bottomMargin("");
+
+//        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) b1.getLayoutParams();
+        //params.width = 200; params.leftMargin = 100; params.topMargin = 200;
+//params.bottomMargin = -126/2;
+        //      b1.setLayoutParams(params);
+        //   b2.setLayoutParams(params);
+        Log.i("height", "" + b1.getHeight());
+        //b1.setTop(-b1.getHeight()/2);
+        //b2.setTop(-b2.getHeight()/2);
+        // b1.setBottom((126 / 2));
+        //b2.setBottom((126 / 2));
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         ImageView bg_img = (ImageView) findViewById(R.id.background_img);
@@ -74,7 +94,7 @@ public class PopupActivity extends Activity implements View.OnClickListener {
                 } else if (((Button) v).getText().equals("Cancel")) {
                     i.putExtra("action", "cancel");
                     finish();
-                    startActivity(i);
+                    //startActivity(i);
                 }
                 break;
             case R.id.imageButtonRight:
@@ -86,8 +106,9 @@ public class PopupActivity extends Activity implements View.OnClickListener {
                         i.putExtra("guesses", 1);
                         i.putExtra("level", 1);
                     }
-                    startActivity(i);
                     i.putExtra("score", score);
+                    startActivity(i);
+                    finish();
                     break;
                 }
         }
@@ -105,6 +126,10 @@ public class PopupActivity extends Activity implements View.OnClickListener {
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
         }
+        Log.i("height here", "" + b1.getHeight());
+        //b1.setBottom(-b1.getHeight()/2);
     }
+
 }
