@@ -3,8 +3,6 @@ package com.gapt.uni.braintrain;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,7 +10,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class GameSelectionActivity extends AppCompatActivity implements View.OnTouchListener {
 int score = 0;//load from DB
@@ -207,23 +204,6 @@ int score = 0;//load from DB
 
     */
 
-    public int getHotspotColor (int hotspotId, int x, int y) {
-        ImageView img = (ImageView) findViewById (hotspotId);
-        img.setDrawingCacheEnabled(true);
-        Bitmap hotspots = Bitmap.createBitmap(img.getDrawingCache());
-        img.setDrawingCacheEnabled(false);
-        return hotspots.getPixel(x, y);
-    }
-
-    public boolean closeMatch (int color1, int color2, int tolerance) {
-        if ((int) Math.abs (Color.red (color1) - Color.red (color2)) > tolerance )
-            return false;
-        if ((int) Math.abs (Color.green (color1) - Color.green (color2)) > tolerance )
-            return false;
-        if ((int) Math.abs (Color.blue (color1) - Color.blue(color2)) > tolerance )
-            return false;
-        return true;
-    } // end match
 
 
 

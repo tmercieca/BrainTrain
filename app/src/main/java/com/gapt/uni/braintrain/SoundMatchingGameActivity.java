@@ -9,6 +9,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -38,7 +39,6 @@ public class SoundMatchingGameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound_matching_game);
 
-
         View m = getWindow().getDecorView();
         m.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -47,6 +47,18 @@ public class SoundMatchingGameActivity extends Activity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+
+        DisplayMetrics dm = new DisplayMetrics();
+
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+//        int height = dm.heightPixels;
+
+
+
+
+
 
         listOfAnimals.add(new Animal("Bear", R.mipmap.animals_bear, R.raw.bear_growl));//0
         listOfAnimals.add(new Animal("Lion", R.mipmap.animals_lion, R.raw.lion_growling));//1
@@ -84,7 +96,7 @@ public class SoundMatchingGameActivity extends Activity {
                 stopPlaying(mMediaPlayer);
                 finish();
 
-
+                startActivity(new Intent(SoundMatchingGameActivity.this, GameSelectionActivity.class));
                 Intent i = new Intent(SoundMatchingGameActivity.this, LoadingScreenActivity.class);
                 i.putExtra("type", "game_over sound");
                 startActivity(i);
@@ -105,8 +117,9 @@ public class SoundMatchingGameActivity extends Activity {
             for (j = 0; j < 4; j++) {// 4 cols
                 final ImageButton ib = new ImageButton(this);
                 TableRow.LayoutParams params = new TableRow.LayoutParams();
-                params.height = 200;
-                params.width = 200;
+                params.width = width / 6;
+                params.height = params.width; //square
+
                 String tag = "" + listOfAnimals.get(uniqueRandomsArrayList.get(index)).getSoundRes();
                 ib.setImageResource(listOfAnimals.get(uniqueRandomsArrayList.get(index)).getDrawable());
                 if (uniqueRandomsArrayList.get(index) == x) {
