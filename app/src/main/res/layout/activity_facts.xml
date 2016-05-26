@@ -17,13 +17,24 @@
             android:id="@+id/back_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@android:color/transparent"
+            android:background="@drawable/round_button"
             android:src="@drawable/menu_back_arrow"
             android:scaleType="fitCenter"
-            android:layout_gravity="top"
             android:textColor="#fff"
-            android:paddingTop="5dp"
-            android:paddingLeft="5dp" />
+            android:paddingTop="0dp"
+            android:paddingLeft="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical" />
+
+        <Button
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:text="Train this Lobe"
+            android:id="@+id/button"
+            android:background="@color/colorAccent"
+            android:textColor="#ffffff"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp" />
 
         <com.gapt.uni.braintrain.libs.SwipeDeck
         android:id="@+id/swipe_deck"
@@ -40,9 +51,14 @@
 
         <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        android:id="@+id/right" />
+        android:layout_height="70dp"
+        android:text="Next Fact"
+        android:id="@+id/right"
+            android:background="@color/colorAccent"
+            android:textColor="#ffffff"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp" />
+
     </LinearLayout>
 
 </com.gapt.uni.braintrain.libs.SwipeFrameLayout>
