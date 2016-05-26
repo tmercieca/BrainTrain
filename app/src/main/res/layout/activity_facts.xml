@@ -26,16 +26,6 @@
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_vertical" />
 
-        <Button
-            android:layout_width="79dp"
-            android:layout_height="wrap_content"
-            android:text="Train this Lobe"
-            android:id="@+id/button"
-            android:background="@color/colorAccent"
-            android:textColor="#ffffff"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="10dp" />
-
         <com.gapt.uni.braintrain.libs.SwipeDeck
         android:id="@+id/swipe_deck"
         android:layout_width="397dp"
