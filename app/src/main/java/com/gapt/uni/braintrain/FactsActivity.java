@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gapt.uni.braintrain.libs.SwipeDeck;
@@ -17,10 +16,9 @@ import java.util.ArrayList;
 public class FactsActivity extends AppCompatActivity{
 
     private static final String TAG = "MainActivity";
+    int current = 0;
     private SwipeDeck cardStack;
     private Context context = this;
-    int current = 0;
-
     private SwipeDeckAdapter adapter;
     private ArrayList<String> fact;
 
@@ -58,57 +56,69 @@ public class FactsActivity extends AppCompatActivity{
                 case "frontal":
                     //frontal
                     labelstring = "Frontal lobe";
-                    fact.add("This is a test");
-                    fact.add("1");
-                    fact.add("2");
-                    fact.add("3");
-                    fact.add("4");
-                    fact.add("this text will not appear");
+                    fact.add("Frontal Lobe \nThis part of your brain is responsible for...");
+                    fact.add("Movement at will");
+                    fact.add("Expressing yourself");
+                    fact.add("Social Interactions");
+                    fact.add("Emotions");
+                    fact.add("Motivation");
+                    fact.add("Short Term Memory");
+                    fact.add("Improve this part of the brain by playing memory games.");
+                    fact.add("");
+
                     break;
 
                 case "temporal":
-                    fact.add("This is a test");
-                    fact.add("1");
-                    fact.add("2");
-                    fact.add("3");
-                    fact.add("4");
-                    fact.add("this text will not appear");
+                    fact.add("Temporal Lobe \nThis part of your brain is responsible for...");
+                    fact.add("Hearing");
+                    fact.add("Smelling");
+                    fact.add("Sense of music");
+                    fact.add("Long Term Memory");
+                    fact.add("Protect this part of your brain by engaging in activities which use your senses.");
+                    fact.add("");
                     break;
 
                 case "stem":
-                    fact.add("This is a test");
-                    fact.add("1");
-                    fact.add("2");
-                    fact.add("3");
-                    fact.add("4");
-                    fact.add("this text will not appear");
+                    fact.add("Brain Stem \n This part of your brain is responsible for...");
+                    fact.add("Motor skills such as...");
+                    fact.add("Chewing swalling, balance, speaking, breat...");
+                    fact.add("Swallowing");
+                    fact.add("Balance");
+                    fact.add("Breathing");
+                    fact.add("Speaking");
+                    fact.add("Protect this part of the brain by engaging in motor skills activities.");
+                    fact.add("");
+
                     break;
 
                 case "occipital":
-                    fact.add("This is a test");
-                    fact.add("1");
-                    fact.add("2");
-                    fact.add("3");
-                    fact.add("4");
-                    fact.add("this text will not appear");
+                    fact.add("Occipital Lobe \nThis part of your brain is responsible for...");
+                    fact.add("Visual perception");
+                    fact.add("In other words, understanding what you see");
+                    fact.add("");
+
                     break;
 
                 case "paretial":
-                    fact.add("This is a test");
-                    fact.add("1");
-                    fact.add("2");
-                    fact.add("3");
-                    fact.add("4");
-                    fact.add("this text will not appear");
+                    fact.add("Paretial Lobe \nThis part of your brain is responsible for...");
+                    fact.add("Telling between hot and cold");
+                    fact.add("Reading");
+                    fact.add("Calculations");
+                    fact.add("Awareness");
+                    fact.add("Relationships");
+                    fact.add("Improve this part of the brain by reading and doing math.");
+                    fact.add("");
+
                     break;
 
                 case "cerebellum":
-                    fact.add("This is a test");
-                    fact.add("1");
-                    fact.add("2");
-                    fact.add("3");
-                    fact.add("4");
-                    fact.add("this text will not appear");
+                    fact.add("Cerebellum \n This part of your brain is responsible for...");
+                    fact.add("Coordinating actions");
+                    fact.add("Balance");
+                    fact.add("Protect this part of the brain by performing meditation... ");
+                    fact.add("... and by being mindful of your actions.");
+                    fact.add("");
+
                     break;
             }
 

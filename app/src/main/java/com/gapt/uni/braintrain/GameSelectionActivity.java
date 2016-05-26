@@ -2,16 +2,13 @@
 package com.gapt.uni.braintrain;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
 public class GameSelectionActivity extends AppCompatActivity implements View.OnTouchListener {
-int score = 0;//load from DB
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,123 +21,47 @@ int score = 0;//load from DB
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-         final String PREFS_NAME = "MyPrefsFile";
-
-        SharedPreferences settings = getApplicationContext().getSharedPreferences(PREFS_NAME, 0);
-
-        int score = settings.getInt("score", 0); //set score to 0 if score not found
-
-
-
-        //ImageButton thumbTop1 = (ImageButton) findViewById(R.id.upper_thumbnail_1);
-        //ImageButton thumbBot1 = (ImageButton) findViewById(R.id.lower_thumbnail_1);
-        //ImageButton thumbTop2 = (ImageButton) findViewById(R.id.upper_thumbnail_2);
-        //ImageButton thumbBot2 = (ImageButton) findViewById(R.id.lower_thumbnail_2);
-        //ImageButton thumbTop3 = (ImageButton) findViewById(R.id.upper_thumbnail_3);
-        //ImageButton thumbBot3 = (ImageButton) findViewById(R.id.lower_thumbnail_3);
-        //thumbTop1.setOnTouchListener(this);
-        //thumbTop2.setOnTouchListener(this);
-        //thumbTop3.setOnTouchListener(this);
-       // thumbBot1.setOnTouchListener(this);
-        //thumbBot2.setOnTouchListener(this);
-        //thumbBot3.setOnTouchListener(this);
 
         ImageButton b = (ImageButton) findViewById(R.id.brain_map_button);
-
-
-        //Button b = (Button) findViewById(R.id.brain_map_button);
-
         b.setOnTouchListener(this);
         ImageButton  sgm = (ImageButton) findViewById(R.id.sound_game_mapping);
         ImageButton  mgm = (ImageButton) findViewById(R.id.memory_game_mapping);
-
         sgm.setOnTouchListener(this);
         mgm.setOnTouchListener(this);
-
-
-        //ImageView trainBody = (ImageView) findViewById(R.id.train_body);
-        //Drawable d = getResources().getDrawable(R.drawable.train4);//this.getApplicationContext().getResources().getDrawable(R.drawable.train4);
-
-
-        //trainBody.setBackground(null);//required
-
-        //d.setColorFilter(Color.parseColor("#FF1233"), PorterDuff.Mode.MULTIPLY);
-        //Log.i("overlayed!", "");;
-        //trainBody.setImageDrawable(d);
-
-        //trainBody.setVisibility(View.VISIBLE);
-
-        //Drawable d =getDrawable(R.id.train_body);
-        //Drawable d = ContextCompat.getDrawable(getApplicationContext(), R.id.train_body);
-
-
-        //Drawable d = getResources().getDrawable()(R.id.train_body);//.id.train_body;// R.id.train_body;//.setColorFilter(0x99FF66, PorterDuff.Mode.MULTIPLY);
         //d.setColorFilter(0x99FF66, PorterDuff.Mode.MULTIPLY);
-        //trainBody.setBackground(getResources().getDrawable(R.drawable.train4));
-
-        //getResources().getDrawable(R.drawable.train4));//.train_body));
-
-
-        //sgm.setVisibility(View.VISIBLE);
-        //mgm.setVisibility(View.VISIBLE);
-
-
     }
 
-
-
     public boolean onTouch(View v, MotionEvent event) {
-
-       // ImageButton thumbTop1 = (ImageButton) findViewById(R.id.upper_thumbnail_1);
-
-        //ImageButton thumbTop2 = (ImageButton) findViewById(R.id.upper_thumbnail_2);
-        //ImageButton thumbBot2 = (ImageButton) findViewById(R.id.lower_thumbnail_2);
-        //ImageButton thumbTop3 = (ImageButton) findViewById(R.id.upper_thumbnail_3);
-        //ImageButton thumbBot3 = (ImageButton) findViewById(R.id.lower_thumbnail_3);
             switch(v.getId()){
                 case R.id.sound_game_mapping:
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                        //    thumbTop1.setPressed(true);
-                        //thumbBot1.setPressed(true);
-
+                        //press down effect
                     }
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         //  Intent i = new Intent(GameSelectionActivity.this, sound.class);
                         Intent i = new Intent(GameSelectionActivity.this, PopupActivity.class);
                         i.putExtra("type", "sound_matching");
-                        i.putExtra("score", score);
                         startActivity(i);
                     }
                     break;
                 case R.id.memory_game_mapping:
-
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
-
+                        //press down effect
                     }
-
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-
-                        //Intent i = new Intent(GameSelectionActivity.this, pattern.class);
                         Intent i = new Intent(GameSelectionActivity.this, PopupActivity.class);
-
                         i.putExtra("type", "pattern_matching");
-                        i.putExtra("score", score);
                         startActivity(i);
-                        Log.i("Action down","ad");
                     }
                     break;
                 case R.id.brain_map_button:
                     if (event.getAction() == MotionEvent.ACTION_DOWN){
-
+                        //press down effect
                     }
-
-
                     if (event.getAction() == MotionEvent.ACTION_UP){
                         Intent i = new Intent (GameSelectionActivity.this, BrainMapActivity.class);
                         startActivity(i);
                     }
-
-
             }
             return true;
         }
@@ -152,7 +73,6 @@ int score = 0;//load from DB
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         View m = getWindow().getDecorView();
-
         if (hasFocus) {
             m.setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -161,10 +81,7 @@ int score = 0;//load from DB
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);}
-    } //CHECK FLAGS
-
-
-
+    }
 /*
     // This snippet hides the system bars.
     private void hideSystemUI() {
@@ -205,16 +122,4 @@ int score = 0;//load from DB
     }
 
     */
-
-
-
-
-
-
-
-
-
-
-
-
 }

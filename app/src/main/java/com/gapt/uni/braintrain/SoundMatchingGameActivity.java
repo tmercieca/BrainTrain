@@ -10,10 +10,10 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -24,21 +24,17 @@ import java.util.List;
 import java.util.Random;
 
 public class SoundMatchingGameActivity extends Activity {
-    int score = 0;
+    int score;
     Random rand = new Random();
-    //MediaPlayer mp2, mMediaPlayer;
-    int i, j, index = 0, tGuesses = 2;
+    int i, j, index = 0;
     List<Animal> listOfAnimals = new ArrayList<>();
     MediaPlayer mMediaPlayer = new MediaPlayer();
     MediaPlayer mp2 = new MediaPlayer();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("activity", "new");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound_matching_game);
-
         View m = getWindow().getDecorView();
         m.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -47,18 +43,13 @@ public class SoundMatchingGameActivity extends Activity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
-
         DisplayMetrics dm = new DisplayMetrics();
-
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
-//        int height = dm.heightPixels;
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        score = sharedPref.getInt("score", 0);
 
-
-
-
-
+        final ImageView iv = (ImageView) findViewById(R.id.feedback);
 
         listOfAnimals.add(new Animal("Bear", R.mipmap.animals_bear, R.raw.bear_growl));//0
         listOfAnimals.add(new Animal("Lion", R.mipmap.animals_lion, R.raw.lion_growling));//1
@@ -95,7 +86,6 @@ public class SoundMatchingGameActivity extends Activity {
                 stopPlaying(mp2);
                 stopPlaying(mMediaPlayer);
                 finish();
-
                 startActivity(new Intent(SoundMatchingGameActivity.this, GameSelectionActivity.class));
                 Intent i = new Intent(SoundMatchingGameActivity.this, LoadingScreenActivity.class);
                 i.putExtra("type", "game_over sound");
@@ -107,6 +97,8 @@ public class SoundMatchingGameActivity extends Activity {
         final TableLayout table = (TableLayout) findViewById(R.id.table_with_choices);
         table.setGravity(Gravity.CENTER);
 
+        final TextView tv = (TextView) findViewById(R.id.score);
+        tv.setText("" + score);
 
         List<Integer> uniqueRandomsArrayList = createListUnqRandInclNo(0, 10, 0, 8, x);
 
@@ -136,16 +128,20 @@ public class SoundMatchingGameActivity extends Activity {
                     public void onClick(View v) {
                         if (((String) ib.getTag()).charAt(0) == '1') {
 
-                            TextView tv = (TextView) findViewById(R.id.score);
                             //Log.i("TAG", "success - match");
 
-                            score++;
-                            tv.setText("SCORE: " + score);
+                            score += 2;
+                            tv.setText("" + score);
+                            SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putInt("score", score);
+                            editor.commit();
+
 
                             int soundRes;
-                            //Log.i("TAgg", ((String)ib.getTag()).substring(1));
                             soundRes = Integer.parseInt(((String) ib.getTag()).substring(1));
-                            ib.setTag("0"); //so as not to be able to click again click again
+                            ib.setEnabled(false); //so as not to be able to click again
+                            //setTag("0");
                             mp2 = MediaPlayer.create(getApplicationContext(), soundRes);
                             mp2.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
@@ -155,58 +151,49 @@ public class SoundMatchingGameActivity extends Activity {
                             backButton.setVisibility(View.INVISIBLE);
                             table.removeAllViews();
                             stopPlaying(mMediaPlayer);
-                            //delay
+
+                            iv.setVisibility(View.VISIBLE);
+                            //Log.i("visible", "visible");
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
 
                                     stopPlaying(mp2);
-
-                                    //new Intent().putExtra()
-                                    //intent.putExtra("EXTRA_SESSION_ID", sessionId);
                                     startActivity(new Intent(SoundMatchingGameActivity.this, SoundMatchingGameActivity.class));
-                                    //Log.i("msg", "reached new activity");
+
                                     finish();
                                 }
                             }, mp2.getDuration());
 
                         } else {
                             int soundRes;
-                            //Log.i("tag", "fail no match");
                             soundRes = Integer.parseInt(((String) ib.getTag()).substring(1));
-
                             mp2 = MediaPlayer.create(getApplicationContext(), soundRes);
                             mp2.setAudioStreamType(AudioManager.STREAM_MUSIC);
                             //mMediaPlayer.setLooping(true);
                             mp2.start();
                             table.removeAllViews();
+                            iv.setImageDrawable(getResources().getDrawable(R.drawable.lost));
+                            iv.setVisibility(View.VISIBLE);
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-
-
                                     finish();
                                     Intent i = new Intent(SoundMatchingGameActivity.this, LoadingScreenActivity.class);
                                     i.putExtra("type", "game_over sound");
                                     startActivity(i);
-
-//gameover
                                 }
                             }, mp2.getDuration());
-
-
                         }
                     }
-
-
                 });
-
                 tr.addView(ib);
                 index++;
             }
         }
     }
 
+    //cap with level
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -259,7 +246,6 @@ public class SoundMatchingGameActivity extends Activity {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt("score", score);
         editor.commit();
-        editor.apply();
 
         super.onStop();
     }

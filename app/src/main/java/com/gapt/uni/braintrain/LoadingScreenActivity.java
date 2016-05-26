@@ -21,8 +21,15 @@ public class LoadingScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_screen_activity);
-        factList.add("fact1");
-        factList.add("fact2");
+        factList.add("Your brain is 73% water");
+        factList.add("Dehydration will affect your attention \nand memory");
+        factList.add("90 minutes of sweating will temporarily shrink \nthe brain as much as growing older by a year");
+        factList.add("Information across the brain moves \nfaster than the speed of Formula 1 cars");
+        factList.add("Brains are not fully formed until the age of 25");
+        factList.add("The brain is the fattiest organ");
+        factList.add("Your brain generates less electricity than \nwhat is required to power a light bulb");
+        factList.add("Avoid bumping your head");
+        factList.add("The hair on your head serves as a \ncushion when you hit your head");
         type = getIntent().getExtras().getString("type");
 
         int randomIndex = r.nextInt(factList.size());
@@ -33,17 +40,9 @@ public class LoadingScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 finish();
-                //if (type.equals("game_over sound") || type.equals("game_over pattern")){
-                //  Log.i("made it here", "");
-                //startActivity(new Intent(LoadingScreenActivity.this, GameSelectionActivity.class));
-                //}
-                //startActivity(new Intent(LoadingScreenActivity.this, GameSelectionActivity.class));
                 Intent i = new Intent(LoadingScreenActivity.this, PopupActivity.class);
                 i.putExtra("type", type);
-
                 startActivity(i);
-
-
             }
         }, 3500);
 
@@ -54,7 +53,6 @@ public class LoadingScreenActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         View m = getWindow().getDecorView();
-
         if (hasFocus) {
             m.setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
