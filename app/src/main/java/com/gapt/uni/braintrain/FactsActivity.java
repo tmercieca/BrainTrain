@@ -1,6 +1,7 @@
 package com.gapt.uni.braintrain;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -136,6 +137,16 @@ public class FactsActivity extends AppCompatActivity{
                 cardStack.swipeTopCardRight(current);
             }
         });
+
+        ImageButton bk = (ImageButton) findViewById(R.id.back_button);
+        assert bk != null;
+        bk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
         final SwipeDeckAdapter adapter = new SwipeDeckAdapter(fact, this);
         cardStack.setAdapter(adapter);
