@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 public class PatternGameActivity extends Activity {
-    int guessed, rowNo, colNo, toGuessNo, level, score, width;
+    int guessed, rowNo, colNo, toGuessNo, level, score, height;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +49,7 @@ public class PatternGameActivity extends Activity {
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-        width = dm.widthPixels;
+        height = dm.heightPixels;
 
         rowNo = bundle.getInt("row");
         colNo = bundle.getInt("col");
@@ -73,8 +73,8 @@ public class PatternGameActivity extends Activity {
                 for (int c = 0; c < col; c++) {
                     final ImageButton ib = new ImageButton(this);
                     TableRow.LayoutParams params = new TableRow.LayoutParams();
-                    params.width = width / 6;
-                    params.height = params.width;
+                    params.height = height / 4;
+                    params.width = params.height;
                     ib.setLayoutParams(params);
 
 
@@ -104,18 +104,8 @@ public class PatternGameActivity extends Activity {
                                             colNo++;
                                         } else if (level == 5 || level == 7 || level == 8 || level == 10 || level == 11 || level == 12) {
                                             toGuessNo++;
-                                        } else {
-                                            final Intent j = new Intent(PatternGameActivity.this, LoadingScreenActivity.class);
-                                            j.putExtra("type", "game_over pattern");
-                                            iv.setVisibility(View.VISIBLE);
-                                            new Handler().postDelayed(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    startActivity(j);
-                                                    finish();
-                                                }
-                                            }, 2000);
                                         }
+
                                         i.putExtra("row", rowNo);
                                         i.putExtra("col", colNo);
                                         i.putExtra("guesses", toGuessNo);
@@ -141,7 +131,6 @@ public class PatternGameActivity extends Activity {
 
                                     } else {
 
-                                        iv.setImageDrawable(getResources().getDrawable(R.drawable.lost));
                                         iv.setVisibility(View.VISIBLE);
                                         final Intent i = new Intent(PatternGameActivity.this, LoadingScreenActivity.class);
                                         i.putExtra("type", "game_over pattern");

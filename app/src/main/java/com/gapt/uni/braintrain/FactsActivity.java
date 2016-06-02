@@ -47,6 +47,12 @@ public class FactsActivity extends AppCompatActivity{
         final ArrayList<String> fact = new ArrayList<>();
         TextView label = (TextView)findViewById(R.id.smallText);
         ImageButton back = (ImageButton)findViewById(R.id.back_button);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         String labelstring = "";
 
         Bundle extras = getIntent().getExtras();
