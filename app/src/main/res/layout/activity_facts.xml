@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <com.gapt.uni.braintrain.libs.SwipeFrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:swipedeck="http://schemas.android.com/apk/res-auto"
@@ -17,37 +16,37 @@
             android:id="@+id/back_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/round_button"
-            android:src="@drawable/menu_back_arrow"
-            android:scaleType="fitCenter"
-            android:textColor="#fff"
-            android:paddingTop="0dp"
-            android:paddingLeft="0dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical" />
+            android:background="@drawable/round_button"
+            android:paddingLeft="0dp"
+            android:paddingTop="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/menu_back_arrow"
+            android:textColor="#fff" />
 
         <com.gapt.uni.braintrain.libs.SwipeDeck
         android:id="@+id/swipe_deck"
         android:layout_width="397dp"
         android:layout_height="fill_parent"
-        swipedeck:max_visible="3"
-        swipedeck:render_above="true"
-        swipedeck:card_spacing="10dp"
-        swipedeck:rotation_degrees="15"
-        android:paddingTop="30dp"
+            android:paddingBottom="40dp"
             android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-            android:paddingBottom="40dp" />
+            android:paddingRight="20dp"
+        android:paddingTop="30dp"
+            swipedeck:card_spacing="10dp"
+            swipedeck:max_visible="3"
+            swipedeck:render_above="true"
+            swipedeck:rotation_degrees="15" />
 
         <Button
+            android:id="@+id/right"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text="Next Fact"
-        android:id="@+id/right"
-            android:background="@color/colorAccent"
-            android:textColor="#ffffff"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="10dp"
+            android:background="@color/colorAccent"
+            android:text="Next Fact"
+            android:textColor="#ffffff" />
 
     </LinearLayout>
 
